@@ -1,7 +1,9 @@
 import CompetitionPojo.CompetitionPojo;
+import CountryPojo.ActiveCompetitions;
 import CountryPojo.Country;
 import ScorerPojo.TopScorer;
 import TeamsPojo.TeamPojo;
+import Utils.Constants;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
@@ -10,13 +12,15 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.HttpClientBuilder;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import static Utils.Constants.*;
+
 
 /**
  * Created by nurkulov 12/26/19
@@ -27,11 +31,8 @@ public class APITasks {
     private static HttpGet httpGet;
     private static HttpResponse response;
     private static ObjectMapper objectMapper;
-    private static final String JSON = "apllication/json";
-    private static final String TOKEN = "0781898207d84546abfea4f2c29ef6e5";
-    private static final String BASEURL = "api.football-data.org/";
-    private static final String SCHEME = "https";
-    private static final String AUTH = "X-Auth-Token";
+
+
 
 
     /*
@@ -48,8 +49,8 @@ public class APITasks {
                 .setPath("/v2/teams");
 
         httpGet = new HttpGet(uriBuilder.build());
-        httpGet.setHeader("Accept", JSON);
-        httpGet.setHeader("Content-Type", JSON);
+        httpGet.setHeader(ACCEPT, JSON);
+        httpGet.setHeader(CONTENT_TYPE, JSON);
         httpGet.setHeader(AUTH, TOKEN);
 
         response = httpClient.execute(httpGet);
@@ -78,8 +79,8 @@ public class APITasks {
                 .setPath("/v2/teams/66");
 
         httpGet = new HttpGet(uriBuilder.build());
-        httpGet.setHeader("Accept", JSON);
-        httpGet.setHeader("Content-Type", JSON);
+        httpGet.setHeader(ACCEPT, JSON);
+        httpGet.setHeader(CONTENT_TYPE, JSON);
         httpGet.setHeader(AUTH, TOKEN);
 
         response = httpClient.execute(httpGet);
@@ -113,9 +114,9 @@ public class APITasks {
                 .setPath("/v2/teams/66");
 
         httpGet = new HttpGet(uriBuilder.build());
-        httpGet.setHeader("Accept", JSON);
-        httpGet.setHeader("Content-Type", JSON);
-        httpGet.setHeader("X-Auth-Token", TOKEN);
+        httpGet.setHeader(ACCEPT, JSON);
+        httpGet.setHeader(CONTENT_TYPE, JSON);
+        httpGet.setHeader(AUTH, TOKEN);
 
         response = httpClient.execute(httpGet);
 
@@ -149,9 +150,9 @@ public class APITasks {
                 .setPath("/v2/teams/66");
 
         httpGet = new HttpGet(uriBuilder.build());
-        httpGet.setHeader("Accept", JSON);
-        httpGet.setHeader("Content-Type", JSON);
-        httpGet.setHeader("X-Auth-Token", TOKEN);
+        httpGet.setHeader(ACCEPT, JSON);
+        httpGet.setHeader(CONTENT_TYPE, JSON);
+        httpGet.setHeader(AUTH, TOKEN);
 
         response = httpClient.execute(httpGet);
 
@@ -185,9 +186,9 @@ public class APITasks {
                 .setPath("/v2/teams/66");
 
         httpGet = new HttpGet(uriBuilder.build());
-        httpGet.setHeader("Accept", JSON);
-        httpGet.setHeader("Content-Type", JSON);
-        httpGet.setHeader("X-Auth-Token", TOKEN);
+        httpGet.setHeader(ACCEPT, JSON);
+        httpGet.setHeader(CONTENT_TYPE, JSON);
+        httpGet.setHeader(AUTH, TOKEN);
 
         response = httpClient.execute(httpGet);
 
@@ -224,8 +225,8 @@ public class APITasks {
                 .setPath("/v2/teams/66");
 
         httpGet = new HttpGet(uriBuilder.build());
-        httpGet.setHeader("Accept", JSON);
-        httpGet.setHeader("Content-Type", JSON);
+        httpGet.setHeader(ACCEPT, JSON);
+        httpGet.setHeader(CONTENT_TYPE, JSON);
         httpGet.setHeader(AUTH, TOKEN);
 
         response = httpClient.execute(httpGet);
@@ -261,8 +262,8 @@ public class APITasks {
                 .setPath("/v2/teams/77");
 
         httpGet = new HttpGet(uriBuilder.build());
-        httpGet.setHeader("Accept", JSON);
-        httpGet.setHeader("Content-Type", JSON);
+        httpGet.setHeader(ACCEPT, JSON);
+        httpGet.setHeader(CONTENT_TYPE, JSON);
         httpGet.setHeader(AUTH, TOKEN);
 
         response = httpClient.execute(httpGet);
@@ -293,8 +294,8 @@ public class APITasks {
                 .setPath("v2/competitions/");
 
         httpGet = new HttpGet(uriBuilder.build());
-        httpGet.setHeader("Accept", JSON);
-        httpGet.setHeader("Content-Type", JSON);
+        httpGet.setHeader(ACCEPT, JSON);
+        httpGet.setHeader(CONTENT_TYPE, JSON);
         httpGet.setHeader(AUTH, TOKEN);
 
         response = httpClient.execute(httpGet);
@@ -336,8 +337,8 @@ public class APITasks {
                 .setPath("v2/competitions/2000/scorers");
 
         httpGet = new HttpGet(uriBuilder.build());
-        httpGet.setHeader("Accept", JSON);
-        httpGet.setHeader("Content-Type", JSON);
+        httpGet.setHeader(ACCEPT, JSON);
+        httpGet.setHeader(CONTENT_TYPE, JSON);
         httpGet.setHeader(AUTH, TOKEN);
 
         response = httpClient.execute(httpGet);
